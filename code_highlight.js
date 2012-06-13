@@ -33,7 +33,6 @@ highlight_fragment = function (code) {
             text = orig_code.html()
         }
 
-
         var text_lines = text.split('\n');
         var between = false;
         var padding = 0;
@@ -44,8 +43,8 @@ highlight_fragment = function (code) {
                 padding = determine_left_padding(line);
 
                 var new_line = line.substring(padding);
-                new_lines += '<' + 'pre' + ' class="prettify" style="background-color:#eee">\n'
-                new_lines += ('<' + 'code' + ' id="highlight" class="prettify" style="background-color:#eee">' +new_line+ '\n')
+                new_lines += '<' + 'pre' + ' class="prettify highlight">\n'
+                new_lines += ('<' + 'code' + ' id="highlight" class="prettify">' +new_line+ '\n')
             }
             else {
                 new_lines += (between ? line.substring(padding):line) + '\n'
@@ -58,8 +57,7 @@ highlight_fragment = function (code) {
 
         code_block.html(new_lines);
         prettify();
-
-        $("#highlight").animate({fontSize: '+=20%'}, 100, 'swing');
+        $('#highlight').trigger('lineshighlighted');
     }
 }
 
