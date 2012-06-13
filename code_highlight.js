@@ -38,12 +38,12 @@ highlight_fragment = function (code) {
         var between = false;
         var padding = 0;
         for(var i = 0; i < text_lines.length; i++) {
-            line = text_lines[i]
+            var line = text_lines[i]
             if(i == from) {
                 between = true;
                 padding = determine_left_padding(line);
 
-                new_line = line.substring(padding);
+                var new_line = line.substring(padding);
                 new_lines += '<' + 'pre' + ' class="prettify" style="background-color:#eee">\n'
                 new_lines += ('<' + 'code' + ' id="highlight" class="prettify" style="background-color:#eee">' +new_line+ '\n')
             }
