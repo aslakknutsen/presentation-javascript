@@ -43,8 +43,8 @@ highlight_fragment = function (code) {
                 padding = determine_left_padding(line);
 
                 var new_line = line.substring(padding);
-                new_lines += '<' + 'pre' + ' class="prettify highlight">\n'
-                new_lines += ('<' + 'code' + ' id="highlight" class="prettify">' +new_line+ '\n')
+                new_lines += '<' + 'pre' + ' class="prettyprint highlight">\n'
+                new_lines += ('<' + 'code' + ' id="highlight" class="prettyprint">' +new_line+ '\n')
             }
             else {
                 new_lines += (between ? line.substring(padding):line) + '\n'
@@ -56,7 +56,7 @@ highlight_fragment = function (code) {
         }
 
         code_block.html(new_lines);
-        prettify();
+        prettyPrint();
         $('#highlight').trigger('lineshighlighted');
     }
 }
@@ -86,7 +86,7 @@ hide_lines = function (event) {
                 text = orig_code.html()
             }
             code_block.html(text);
-            prettify();
+            prettyPrint();
 
             var previous_fragment = $(".present .fragment.visible").last();
             highlight_fragment(previous_fragment);
