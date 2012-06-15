@@ -23,8 +23,12 @@ Example usage:
     </section>
 
     <script>
-        Reveal.addEventListener( 'fragmentshown', show_lines);
-        Reveal.addEventListener( 'fragmenthidden', hide_lines);
+        CodeHighlight.initialize({reveal: Reveal});
+
+        // optionally listen for 'lineshighlighted' events
+        $('body').on('lineshighlighted', function(event) {
+            $(event.target).animate({fontSize: '+=20%'}, 100, 'swing');
+        });
     </script>
 
 The effect can be seen in this [video](http://www.youtube.com/watch?v=v11oO5I8JgQ&feature=plcp)
