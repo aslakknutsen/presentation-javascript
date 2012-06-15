@@ -23,8 +23,6 @@ var CodeHighlight = (function ($) {
         })
     }
 
-    ;
-
     function highlight_fragment(fragment) {
         var code = get_code(fragment);
         if (typeof code !== 'undefined') {
@@ -71,8 +69,6 @@ var CodeHighlight = (function ($) {
             }
         })
     }
-
-    ;
 
     function get_code(fragment) {
         if (typeof fragment.attr('data-prettify') === 'undefined') {
