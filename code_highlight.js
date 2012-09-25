@@ -12,6 +12,7 @@ var CodeHighlight = (function ($) {
         }, options);
 
         var Reveal = settings.reveal;
+        Reveal.addEventListener('slidechanged', showLines);
         Reveal.addEventListener('fragmentshown', showLines);
         Reveal.addEventListener('fragmenthidden', hide_lines);
     }
@@ -63,7 +64,7 @@ var CodeHighlight = (function ($) {
                 padding = determine_left_padding(line);
 
                 var new_line = line.substring(padding);
-                new_html += '<' + 'pre' + ' class="prettyprint highlight">\n'
+                new_html += '<' + 'pre' + ' class="prettyprint highlight" style="' + coords.style + ' ">\n'
                 new_html += ('<' + 'code' + ' class="prettyprint">' + new_line + '\n')
             }
             else {
@@ -104,6 +105,7 @@ var CodeHighlight = (function ($) {
         var lines = fragment.attr('data-prettify_lines').split(':');
         coords.from = lines[0];
         coords.to = lines[1];
+        coords.style = fragment.attr('style');
         return coords;
     }
 
